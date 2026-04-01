@@ -13,10 +13,18 @@ form.addEventListener('submit', function (e) {
     let cidade = document.getElementById('cidade').value;
     let peso = document.getElementById('peso').value;
     let estado = document.getElementById('estado').value;
-
-
-
     let tipo = document.querySelector('input[name="tipo"]:checked');
-   
+
+    document.getElementById('erroNome').textContent = '';
+    document.getElementById('erroEmail').textContent = '';
+    document.getElementById('erroTelefone').textContent = '';
+    document.getElementById('erroPeso').textContent = '';
+    document.getElementById('erroIdade').textContent = '';
+    document.getElementById('erroCidade').textContent = '';
+    document.getElementById('erroEstado').textContent = '';
+    document.getElementById('erroTipo').textContent = '';
+    
+
+
 
 })
