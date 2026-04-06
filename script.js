@@ -43,9 +43,17 @@ form.addEventListener('submit', function (e) {
         valido = false;
     }
 
+if (estado === '') {
 
+        alert('Selecione um estado')
+        valido = false;
+    }
 
+ if(idade < 18){
+            
+            document.getElementById('erroIdade').textContent = 'Idade insuficiente, deve ser pelo menos 18 anos ';
+            valido = false;
+        }
 
-    
 
 })
