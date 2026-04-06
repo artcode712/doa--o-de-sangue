@@ -23,8 +23,29 @@ form.addEventListener('submit', function (e) {
     document.getElementById('erroCidade').textContent = '';
     document.getElementById('erroEstado').textContent = '';
     document.getElementById('erroTipo').textContent = '';
+
+
+    if (nome.length < 3) {
+
+        document.getElementById('erroNome').textContent = 'Nome deve ter pelo menos 3 caracteres';
+        valido = false;
+    }
+
+    if (!email.includes('@')) {
+
+        document.getElementById('erroEmail').textContent = 'Email inválido';
+        valido = false;
+    }
+
+    if (telefone.length < 8) {
+
+        document.getElementById('erroTelefone').textContent = 'Telefone inválido, deve ter pelo menos 8 caracteres';
+        valido = false;
+    }
+
+
+
+
     
-
-
 
 })
