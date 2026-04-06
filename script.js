@@ -18,9 +18,9 @@ form.addEventListener('submit', function (e) {
     document.getElementById('erroNome').textContent = '';
     document.getElementById('erroEmail').textContent = '';
     document.getElementById('erroTelefone').textContent = '';
-    document.getElementById('erroPeso').textContent = '';
     document.getElementById('erroIdade').textContent = '';
     document.getElementById('erroCidade').textContent = '';
+    document.getElementById('erroPeso').textContent = '';
     document.getElementById('erroEstado').textContent = '';
     document.getElementById('erroTipo').textContent = '';
 
@@ -43,17 +43,51 @@ form.addEventListener('submit', function (e) {
         valido = false;
     }
 
-if (estado === '') {
+    if (estado === '') {
 
         alert('Selecione um estado')
         valido = false;
     }
 
- if(idade < 18){
+    if (idade < 18) {
+
+        document.getElementById('erroIdade').textContent = 'Idade insuficiente, deve ser pelo menos 18 anos ';
+        valido = false;
+    }
+
+
+    if (cidade.length < 3) {
+
+        document.getElementById('erroCidade').textContent = 'A cidade deve ter pelo menos 3 caracteres';
+        valido = false;
+    }
+
+    if (peso < 50) {
+ document.getElementById('erroPeso').textContent = 'Peso menor que 50kg';
+        valido = false;
+    }
+
+
+    if (valido) {
+        let resultado = document.getElementById('resultado');
+
+        resultado.innerHTML = `
             
-            document.getElementById('erroIdade').textContent = 'Idade insuficiente, deve ser pelo menos 18 anos ';
-            valido = false;
-        }
+            Dados enviados: <br>
+            Nome: ${nome} <br>
+            Email: ${email} <br>
+            Telefone: ${telefone} <br>
+            Peso: ${cpf} <br>
+            Idade: ${idade} <br>
+            Cidade: ${cidade} <br>
+            Estado: ${estado} <br>
+
+            `;
+
+        form.reset();
+    }
+
+
 
 
 })
