@@ -25,9 +25,11 @@ form.addEventListener('submit', function (e) {
     document.getElementById('erroTipo').textContent = '';
 
 
-    if (nome.length < 3) {
-
-        document.getElementById('erroNome').textContent = 'Nome deve ter pelo menos 3 caracteres';
+    if (nome.trim().split(" ").length < 2) {
+        document.getElementById('erroNome').textContent = 'Digite nome e sobrenome';
+        valido = false;
+    } else if (nome.trim().split(" ")[0].length < 3) {
+        document.getElementById('erroNome').textContent = 'O primeiro nome deve ter pelo menos 3 caracteres';
         valido = false;
     }
 
@@ -63,7 +65,7 @@ form.addEventListener('submit', function (e) {
     }
 
     if (peso < 50) {
- document.getElementById('erroPeso').textContent = 'Peso menor que 50kg';
+        document.getElementById('erroPeso').textContent = 'Peso menor que 50kg';
         valido = false;
     }
 
